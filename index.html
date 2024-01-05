@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      body {
+        height: 100vh;
+        background-color: hsl(275, 100%, 97%);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Outfit", sans-serif;
+      }
+      .header {
+        background-image: url(./assets/images/background-pattern-desktop.svg);
+        width: 100%;
+        height: 33%;
+      }
+      .faq-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: white;
+        padding: 45px;
+        position: absolute;
+        top: 15%;
+        width: 500px;
+        border-radius: 15px;
+      }
+      .faq-head {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+      }
+      .faq-head h1 {
+        font-size: 50px;
+      }
+      .question {
+        display: flex;
+        justify-content: space-between;
+      }
+      .question h2 {
+        font-weight: 600;
+        font-size: 19px;
+        padding: 25px 0px;
+        color: hsl(292, 42%, 14%);
+      }
+      .question h2:hover {
+        color: hsl(274.55deg 75.34% 57.06%);
+      }
+      .answer {
+        font-weight: 400;
+        font-size: 16px;
+        color: hsl(292, 16%, 49%);
+      }
+      .question,
+      .answer {
+        width: 490px;
+      }
+      .faq-qrow {
+        border-bottom: 2px solid #e9e9e9;
+        padding: 20px 0px;
+      }
+      .ansHide {
+        display: none;
+      }
+      .ansDisplay {
+        display: block;
+      }
+      @media (max-width: 600px) {
+        .faq-container {
+          padding: 25px;
+          width: 260px;
+        }
+        .faq-head h1 {
+          font-size: 30px;
+        }
+        .faq-head img {
+          width: 15%;
+        }
+        .question,
+        .answer {
+          width: 245px;
+        }
+        .question h2 {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header"></div>
+    <div class="faq-container">
+      <div class="faq-head">
+        <img src="./assets/images/icon-star.svg" alt="SVG Icon" />
+        <h1>FAQs</h1>
+      </div>
+      <div class="faq-body">
+        <div class="faq-qrow">
+          <div class="question">
+            <h2>What is Frontend Mentor, and how will it help me?</h2>
+            <img src="./assets/images/icon-plus.svg" alt="SVG Icon" />
+          </div>
+          <div class="answer ansHide">
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and Javascript. It's suitable for all levels and ideal
+            for portfolio building.
+          </div>
+        </div>
+        <div class="faq-qrow">
+          <div class="question">
+            <h2>Is Frontend Mentor free?</h2>
+            <img src="./assets/images/icon-plus.svg" alt="SVG Icon" />
+          </div>
+          <div class="answer ansHide">
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and Javascript. It's suitable for all levels and ideal
+            for portfolio building.
+          </div>
+        </div>
+        <div class="faq-qrow">
+          <div class="question">
+            <h2>Can I use Frontend Mentor projects in my porfolio?</h2>
+            <img src="./assets/images/icon-plus.svg" alt="SVG Icon" />
+          </div>
+          <div class="answer ansHide">
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and Javascript. It's suitable for all levels and ideal
+            for portfolio building.
+          </div>
+        </div>
+        <div class="faq-qrow">
+          <div class="question">
+            <h2>How can I help if I'm stuck on a challenge?</h2>
+            <img src="./assets/images/icon-plus.svg" alt="SVG Icon" />
+          </div>
+          <div class="answer ansHide">
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and Javascript. It's suitable for all levels and ideal
+            for portfolio building.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const Quest = document.querySelectorAll(".question");
+      const Ans = document.querySelectorAll(".answer");
+      const faqRow = document.querySelectorAll(".faq-qrow");
+
+      faqRow[faqRow.length - 1].style.borderBottom = "unset";
+
+      Quest.forEach(function (question, index) {
+        question.addEventListener("click", function () {
+          Ans[index].classList.toggle("ansHide");
+          if (Ans[index].classList.contains("ansHide")) {
+            question.querySelector("img").src = "./assets/images/icon-plus.svg";
+          } else {
+            question.querySelector("img").src =
+              "./assets/images/icon-minus.svg";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
